@@ -217,7 +217,7 @@ export default function CardDeck() {
 
       {/* Magic trick toggle button */}
       <div
-        className="fixed bottom-4 right-4 w-20 h-20"
+        className="fixed bottom-4 right-4 w-28 h-28"
         onClick={toggleMagicTrick}
       />
     </div>
