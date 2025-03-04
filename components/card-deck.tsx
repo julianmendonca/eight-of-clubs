@@ -52,6 +52,7 @@ export default function CardDeck() {
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
   const [magicTrickActive, setMagicTrickActive] = useState(false);
+  const [showMagicTrick, setShowMagicTrick] = useState(true);
   const magicCard = { suit: "clubs", value: "8", id: "8-clubs" };
 
   const handleShuffle = () => {
@@ -88,11 +89,13 @@ export default function CardDeck() {
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       setSelectedCardId(null);
+      setShowMagicTrick(true);
     }
   };
 
   const toggleMagicTrick = () => {
     setMagicTrickActive(!magicTrickActive);
+    setShowMagicTrick(false);
   };
 
   const selectedCard = cards.find((card) => card.id === selectedCardId);
@@ -213,10 +216,12 @@ export default function CardDeck() {
       </AnimatePresence>
 
       {/* Magic trick toggle button */}
-      <div
-        className="fixed bottom-4 right-4 w-28 h-28"
-        onClick={toggleMagicTrick}
-      />
+      {showMagicTrick && (
+        <div
+          className="absolute bottom-4 right-4 w-28 h-28"
+          onClick={toggleMagicTrick}
+        />
+      )}
     </div>
   );
 }
