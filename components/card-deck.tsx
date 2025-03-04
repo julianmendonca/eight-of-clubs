@@ -81,11 +81,8 @@ export default function CardDeck() {
         return newDeck;
       });
       toggleMagicTrick();
-      setSelectedCardId(magicCard.id);
-    } else {
-      setSelectedCardId(cardId);
     }
-    //setSelectedCardId(magicTrickActive ? magicCard.id : cardId)
+    setSelectedCardId(cardId);
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
